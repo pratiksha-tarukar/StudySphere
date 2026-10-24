@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySphere | Student Productivity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">S</div>
+            <div>
+                <h2>StudySphere</h2>
+                <small>Student Life, Simplified</small>
+            </div>
+        </div>
+
+        <p class="menu-title">MAIN MENU</p>
+        <nav>
+            <button class="nav-link active" data-page="dashboard">⌂ <span>Dashboard</span></button>
+            <button class="nav-link" data-page="timetable">▦ <span>Timetable</span></button>
+            <button class="nav-link" data-page="health">♡ <span>Health & Diet</span></button>
+            <button class="nav-link" data-page="calculator">＋ <span>Calculator Hub</span></button>
+            <button class="nav-link" data-page="tasks">☑ <span>To-Do List</span></button>
+            <button class="nav-link" data-page="focus">♫ <span>Focus Music</span></button>
+        </nav>
+
+        <div class="sidebar-note">
+            <div class="note-icon">✦</div>
+            <h3>Small steps matter!</h3>
+            <p>Every focused minute brings you closer to your goals.</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL STUDENT SPACE</p>
+                <h1 id="page-heading">Dashboard</h1>
+            </div>
+            <div class="date-box">
+                <span>📅</span>
+                <span id="today-date">Today</span>
+            </div>
+        </header>
+
+        <section id="dashboard" class="page active-page">
+            <div class="welcome">
+                <div>
+                    <p class="welcome-label">YOUR DAY, YOUR GOALS</p>
+                    <h2>Make today count. ✨</h2>
+                    <p>Plan your studies, care for yourself and keep moving forward.</p>
+                    <button class="primary-btn" data-go="tasks">View my tasks →</button>
+                </div>
+                <div class="welcome-art">🎓</div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Your overview</h2>
+                    <p>A little progress every day makes a difference.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon purple">▦</div>
+                    <p>Today's lectures</p>
+                    <h3 id="lecture-count">3</h3>
+                    <small>Sample timetable</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <p>Tasks completed</p>
+                    <h3 id="completed-count">0 / 0</h3>
+                    <small>Keep going!</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orange">◷</div>
+                    <p>Focus time today</p>
+                    <h3 id="focus-total">0 min</h3>
+                    <small>Time spent studying</small>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Today's timetable</h2>
+                            <p>Your sample lecture schedule</p>
+                        </div>
+                        <button class="text-btn" data-go="timetable">View all →</button>
+                    </div>
+                    <div id="dashboard-schedule" class="schedule-list"></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>My tasks</h2>
+                            <p>Your study checklist</p>
+                        </div>
+                        <button class="text-btn" data-go="tasks">View all →</button>
+                    </div>
+                    <div id="dashboard-tasks"></div>
+                    <button class="secondary-btn full-btn" data-go="tasks">+ Add a task</button>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Your student toolkit</h2>
+                    <p>Everything you need, all in one place.</p>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <button class="feature-card" data-go="timetable">
+                    <span class="feature-icon purple">▦</span>
+                    <strong>Timetable</strong>
+                    <small>Organize your lectures</small>
+                    <span class="feature-arrow">→</span>
+                </button>
+                <button class="feature-card" data-go="health">
+                    <span class="feature-icon pink">♡</span>
+                    <strong>Health & Diet</strong>
+                    <small>Build healthy habits</small>
+                    <span class="feature-arrow">→</span>
+                </button>
+                <button class="feature-card" data-go="calculator">
+                    <span class="feature-icon yellow">＋</span>
+                    <strong>Calculator Hub</strong>
+                    <small>Tools for your studies</small>
+                    <span class="feature-arrow">→</span>
+                </button>
+                <button class="feature-card" data-go="tasks">
+                    <span class="feature-icon green">✓</span>
+                    <strong>To-Do List</strong>
+                    <small>Achieve your goals</small>
+                    <span class="feature-arrow">→</span>
+                </button>
+                <button class="feature-card" data-go="focus">
+                    <span class="feature-icon blue">♫</span>
+                    <strong>Focus Mode</strong>
+                    <small>Make time for deep work</small>
+                    <span class="feature-arrow">→</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="timetable" class="page">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>My timetable</h2>
+                        <p>Add your real lectures. You can edit or remove them.</p>
+                    </div>
+                </div>
+                <form id="lecture-form" class="form-grid">
+                    <label>Subject
+                        <input id="lecture-subject" placeholder="e.g. Data Structures" required>
+                    </label>
+                    <label>Start time
+                        <input id="lecture-time" type="time" required>
+                    </label>
+                    <label>Room / Teacher
+                        <input id="lecture-room" placeholder="e.g. Room 204">
+                    </label>
+                    <button class="primary-btn" type="submit">+ Add lecture</button>
+                </form>
+                <div id="timetable-list" class="schedule-list"></div>
+            </div>
+        </section>
+
+        <section id="health" class="page">
+            <div class="welcome">
+                <div>
+                    <p class="welcome-label">TAKE CARE OF YOURSELF</p>
+                    <h2>Healthy habits, better study days.</h2>
+                    <p>Start with small, realistic changes to your daily routine.</p>
+                </div>
+                <div class="welcome-art">🌱</div>
+            </div>
+            <div class="content-grid">
+                <div class="panel">
+                    <h2>Daily step tracker</h2>
+                    <p>Enter the steps recorded by your phone or fitness device.</p>
+                    <label>Steps today
+                        <input id="steps-input" type="number" min="0" placeholder="e.g. 4500">
+                    </label>
+                    <button class="primary-btn top-gap" id="save-steps">Save steps</button>
+                    <h3 id="steps-result" class="result-text">0 steps recorded</h3>
+                </div>
+                <div class="panel">
+                    <h2>Healthy study habits</h2>
+                    <ul class="habit-list">
+                        <li>💧 Keep water nearby and drink regularly.</li>
+                        <li>🥗 Eat balanced meals with protein, vegetables and carbohydrates.</li>
+                        <li>🚶 Take short movement breaks between study sessions.</li>
+                        <li>😴 Aim for enough sleep, especially before exams.</li>
+                        <li>🍎 Choose a fruit or another nourishing snack when hungry.</li>
+                    </ul>
+                    <p class="muted">These are general wellness suggestions, not personalized medical advice.</p>
+                </div>
+            </div>
+            <div class="panel top-gap">
+                <h2>Simple exam-day routine</h2>
+                <div class="exam-grid">
+                    <div><strong>🌅 Breakfast</strong><p>Have a familiar, balanced breakfast.</p></div>
+                    <div><strong>🥪 Before the exam</strong><p>Drink water and take a snack if needed.</p></div>
+                    <div><strong>🍛 Lunch</strong><p>Choose a satisfying meal that you digest comfortably.</p></div>
+                    <div><strong>🌙 Night</strong><p>Eat dinner and prioritize sleep over all-night cramming.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="calculator" class="page">
+            <div class="panel">
+                <h2>Scientific Calculator</h2>
+                <p>Try basic calculations, powers and square roots.</p>
+                <input id="calc-display" class="calc-display" placeholder="Enter a calculation" inputmode="decimal">
+                <div class="calc-grid">
+                    <button data-calc="clear">C</button>
+                    <button data-calc="(">(</button>
+                    <button data-calc=")">)</button>
+                    <button data-calc="/">÷</button>
+                    <button data-calc="7">7</button>
+                    <button data-calc="8">8</button>
+                    <button data-calc="9">9</button>
+                    <button data-calc="*">×</button>
+                    <button data-calc="4">4</button>
+                    <button data-calc="5">5</button>
+                    <button data-calc="6">6</button>
+                    <button data-calc="-">−</button>
+                    <button data-calc="1">1</button>
+                    <button data-calc="2">2</button>
+                    <button data-calc="3">3</button>
+                    <button data-calc="+">+</button>
+                    <button data-calc="sqrt">√</button>
+                    <button data-calc="0">0</button>
+                    <button data-calc=".">.</button>
+                    <button data-calc="=">=</button>
+                </div>
+                <p id="calc-message" class="muted">Tip: use * for multiplication. Use ^ for powers.</p>
+            </div>
+            <div class="panel top-gap">
+                <h2>Math reference tables</h2>
+                <p>Choose a reference table to see common values.</p>
+                <div class="button-row">
+                    <button class="secondary-btn" data-table="log">Logarithms</button>
+                    <button class="secondary-btn" data-table="trig">Trigonometry</button>
+                    <button class="secondary-btn" data-table="squares">Squares</button>
+                </div>
+                <div id="math-table" class="table-container"></div>
+            </div>
+            <div class="panel top-gap">
+                <h2>More study tools</h2>
+                <p>Engineering and CA preparation tools can be added according to the exams and subjects you need.</p>
+                <p class="muted">This first version is a general-purpose calculator, not a replacement for every specialized calculator.</p>
+            </div>
+        </section>
+
+        <section id="tasks" class="page">
+            <div class="panel">
+                <h2>My goals & To-Do List</h2>
+                <p>Write down your tasks, choose a time period and track your progress.</p>
+                <form id="task-form" class="form-grid">
+                    <label>Task name
+                        <input id="task-name" placeholder="e.g. Revise Java arrays" required>
+                    </label>
+                    <label>Goal period
+                        <select id="task-period">
+                            <option value="Daily">Daily</option>
+                            <option value="Weekly">Weekly</option>
+                            <option value="Monthly">Monthly</option>
+                        </select>
+                    </label>
+                    <button class="primary-btn" type="submit">+ Add task</button>
+                </form>
+                <div class="progress-track"><div id="task-progress" class="progress-fill"></div></div>
+                <p id="task-progress-text" class="muted">0% completed</p>
+                <div id="task-list" class="task-list"></div>
+            </div>
+        </section>
+
+        <section id="focus" class="page">
+            <div class="focus-panel">
+                <div class="focus-symbol">♫</div>
+                <p class="welcome-label">FOCUS ON WHAT MATTERS</p>
+                <h2>Study time</h2>
+                <p>Work in focused sessions and take breaks when you need them.</p>
+                <div class="timer" id="timer-display">25:00</div>
+                <div class="timer-settings">
+                    <button class="secondary-btn" data-minutes="25">25 min</button>
+                    <button class="secondary-btn" data-minutes="45">45 min</button>
+                    <button class="secondary-btn" data-minutes="60">60 min</button>
+                </div>
+                <div class="button-row center">
+                    <button class="primary-btn" id="timer-start">▶ Start</button>
+                    <button class="secondary-btn" id="timer-reset">↺ Reset</button>
+                </div>
+                <p id="timer-status" class="muted">Ready when you are.</p>
+            </div>
+            <div class="panel top-gap">
+                <h2>Focus sounds</h2>
+                <p>Play a gentle built-in tone while you study, or use your own music player.</p>
+                <div class="button-row">
+                    <button class="secondary-btn" id="sound-start">♫ Play focus tone</button>
+                    <button class="secondary-btn" id="sound-stop">■ Stop sound</button>
+                </div>
+                <p class="muted">This is a simple generated tone, not a full music library. We can add suitable music tracks later.</p>
+            </div>
+            <div class="panel top-gap">
+                <h2>Distraction-free study</h2>
+                <p>Turn on Do Not Disturb on your device, close unnecessary tabs and keep your study materials ready.</p>
+                <p class="muted">A regular website cannot lock other apps on your device. Browser-level blocking can be explored separately.</p>
+            </div>
+        </section>
+
+        <footer>Made for students, one small step at a time. ✦</footer>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
